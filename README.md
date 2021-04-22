@@ -6,7 +6,7 @@ A Node.js Module based on [Name That Color](https://chir.ag/projects/ntc/).
 
 ```sh
 # With NPM
-npm i @cosmicice/namethatcolor
+npm install @cosmicice/namethatcolor
 
 # With Yarn
 yarn add @cosmicice/namethatcolor
