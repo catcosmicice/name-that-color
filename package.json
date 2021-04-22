@@ -1,0 +1,28 @@
+{
+  "name": "@cosmicice/namethatcolor",
+  "version": "1.0.0",
+  "description": "A Node.js Module based on Name That Color (https://chir.ag/projects/ntc/).",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist/ && tsc",
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catcosmicice/name-that-color.git"
+  },
+  "keywords": [
+    "color",
+    "name"
+  ],
+  "author": "cosmicice <catcosmicice@protonmail.ch>",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/catcosmicice/name-that-color/issues"
+  },
+  "homepage": "https://github.com/catcosmicice/name-that-color#readme",
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  }
+}
