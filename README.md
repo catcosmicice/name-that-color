@@ -20,11 +20,10 @@ const { ntc } = require('@cosmicice/namethatcolor');
 import { ntc } from '@cosmicice/namethatcolor';
 
 const color = ntc.name('#eeeeee');
-const rgb = color[0]; // Closest RGB Value
-const name = color[1]; // Color Name
-const exactMatch = color[2]; // True if exact color match
 
-console.log(color);
+console.log(color.color); // Closest RGB Value
+console.log(color.name); // Color Name
+console.log(color.isExact); // True if exact color match
 ```
 
 Feel free to contribute (:
