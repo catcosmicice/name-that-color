@@ -4,6 +4,12 @@
 * @description Typescript version of Name That Color (http://chir.ag/projects/ntc).
 */
 
+interface ntcOutput {
+    color: string;
+    name: string;
+    isExact: boolean;
+};
+
 export const ntc = {
     
     init: () => {
@@ -17,11 +23,11 @@ export const ntc = {
         }
     },
     
-    name: (color: string): Array<string | boolean> => {
+    name: (color: string): ntcOutput => {
         
         color = color.toUpperCase();
 
-        if (color.length < 3 || color.length > 7) return ["#000000", "Invalid Color: " + color, false];
+        if (color.length < 3 || color.length > 7) return { color: "#000000", name: "Invalid Color: " + color, isExact: false };
         if (color.length % 3 == 0) color = "#" + color;
         if (color.length == 4) color = "#" + color.substr(1, 1) + color.substr(1, 1) + color.substr(2, 1) + color.substr(2, 1) + color.substr(3, 1) + color.substr(3, 1);
         
@@ -35,7 +41,7 @@ export const ntc = {
         let cl = -1, df = -1;
         
         for (let i = 0; i < ntc.names.length; i++) {
-            if (color == "#" + ntc.names[i][0]) return ["#" + ntc.names[i][0], ntc.names[i][1], true];
+            if (color == "#" + ntc.names[i][0]) return { color: "#" + ntc.names[i][0], name: ntc.names[i][1], isExact: true };
             // @ts-expect-error 2363
             ndf1 = Math.pow(r - ntc.names[i][2], 2) + Math.pow(g - ntc.names[i][3], 2) + Math.pow(b - ntc.names[i][4], 2);
             // @ts-expect-error 2363
@@ -46,8 +52,8 @@ export const ntc = {
                 cl = i;
             }
         }
-        
-        return (cl < 0 ? ["#000000", "Invalid Color: " + color, false] : ["#" + ntc.names[cl][0], ntc.names[cl][1], false]);
+
+        return (cl < 0 ? { color: "#000000", name: "Invalid Color: " + color, isExact: false } : { color: "#" + ntc.names[cl][0], name: ntc.names[cl][1], isExact: false });
     },
     
     hsl: (color: string): Array<number> => {

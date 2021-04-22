@@ -1,3 +1,5 @@
 const { ntc } = require('../dist/index');
 
-console.log(ntc.name('#eeeeee')[1])
+const color = ntc.name('#eeeeee');
+
+console.log(`Color: ${color.color}\nName: ${color.name}\nExact?: ${color.isExact}`);

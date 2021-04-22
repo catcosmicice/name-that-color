@@ -6,6 +6,7 @@
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ntc = void 0;
+;
 exports.ntc = {
     init: function () {
         var color, rgb, hsl;
@@ -20,7 +21,7 @@ exports.ntc = {
     name: function (color) {
         color = color.toUpperCase();
         if (color.length < 3 || color.length > 7)
-            return ["#000000", "Invalid Color: " + color, false];
+            return { color: "#000000", name: "Invalid Color: " + color, isExact: false };
         if (color.length % 3 == 0)
             color = "#" + color;
         if (color.length == 4)
@@ -35,7 +36,7 @@ exports.ntc = {
         var cl = -1, df = -1;
         for (var i = 0; i < exports.ntc.names.length; i++) {
             if (color == "#" + exports.ntc.names[i][0])
-                return ["#" + exports.ntc.names[i][0], exports.ntc.names[i][1], true];
+                return { color: "#" + exports.ntc.names[i][0], name: exports.ntc.names[i][1], isExact: true };
             // @ts-expect-error 2363
             ndf1 = Math.pow(r - exports.ntc.names[i][2], 2) + Math.pow(g - exports.ntc.names[i][3], 2) + Math.pow(b - exports.ntc.names[i][4], 2);
             // @ts-expect-error 2363
@@ -46,7 +47,7 @@ exports.ntc = {
                 cl = i;
             }
         }
-        return (cl < 0 ? ["#000000", "Invalid Color: " + color, false] : ["#" + exports.ntc.names[cl][0], exports.ntc.names[cl][1], false]);
+        return (cl < 0 ? { color: "#000000", name: "Invalid Color: " + color, isExact: false } : { color: "#" + exports.ntc.names[cl][0], name: exports.ntc.names[cl][1], isExact: false });
     },
     hsl: function (color) {
         var rgb = [parseInt('0x' + color.substring(1, 3)) / 255, parseInt('0x' + color.substring(3, 5)) / 255, parseInt('0x' + color.substring(5, 7)) / 255];
