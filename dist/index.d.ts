@@ -1,7 +1,6 @@
 /**
 * @author cosmicice <https://cosmicice.cat/>
-* @author Chirag Mehta <https://chir.ag/>
-* @description Typescript version of Name That Color (http://chir.ag/projects/ntc).
+* @description A Node.js Module based on Name That Color (https://chir.ag/projects/ntc/).
 */
 interface ntcOutput {
     color: string;
