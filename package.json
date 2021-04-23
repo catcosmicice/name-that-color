@@ -1,6 +1,6 @@
 {
   "name": "@cosmicice/namethatcolor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Node.js Module based on Name That Color (https://chir.ag/projects/ntc/).",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
